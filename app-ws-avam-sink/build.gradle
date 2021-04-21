@@ -1,0 +1,46 @@
+apply plugin: 'org.springframework.boot'
+apply from: 'jaxb.gradle'
+apply from: "${rootProject.rootDir}/gradle/docker-compose.gradle"
+apply from: "${rootProject.rootDir}/gradle/maven-publish.gradle"
+
+dependencies {
+    compile project(':infrastructure-messagebroker')
+
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    compile 'org.springframework.boot:spring-boot-starter-undertow'
+    compile 'org.springframework.boot:spring-boot-starter-web-services'
+    compile 'org.springframework.cloud:spring-cloud-starter-stream-kafka'
+    compile 'org.apache.ws.commons.axiom:axiom-api'
+    compile 'org.apache.ws.commons.axiom:axiom-impl'
+    compile 'javax.xml.stream:stax-api'
+    compile 'org.glassfish.jaxb:jaxb-runtime'
+    compile 'org.apache.commons:commons-text'
+    compile 'org.codehaus.jackson:jackson-core-asl'
+    compile 'com.fasterxml.jackson.core:jackson-annotations'
+    compile 'com.fasterxml.jackson.core:jackson-databind'
+    compile 'com.fasterxml.jackson.datatype:jackson-datatype-jdk8'
+    compile 'com.fasterxml.jackson.module:jackson-module-afterburner'
+    compile 'com.googlecode.libphonenumber:libphonenumber'
+    testCompile 'org.springframework.ws:spring-ws-test'
+    testCompile 'org.springframework.cloud:spring-cloud-stream-test-support'
+
+    optional "org.springframework.boot:spring-boot-configuration-processor"
+}
+
+compileJava.dependsOn(processResources)
+
+apply plugin: 'io.github.http-builder-ng.http-plugin'
+import io.github.httpbuilderng.http.HttpTask
+task registerApps(type: HttpTask) {
+    group 'spring data flow'
+    mustRunAfter 'publish'
+    config {
+        request.uri = 'http://dev.job-room.ch:9393'
+        request.contentType = 'application/x-www-form-urlencoded'
+    }
+    post {
+        request.uri.path = '/apps/sink/wsavam'
+        request.body = "force=true&uri=maven://${project.group}:${project.name}:${version}".toString()
+    }
+}

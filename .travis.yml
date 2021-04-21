@@ -1,0 +1,63 @@
+os:
+- linux
+dist: trusty
+services:
+- docker
+language: java
+jdk:
+- oraclejdk8
+sudo: false
+cache:
+  directories:
+  - "$HOME/.gradle/wrapper"
+  - "$HOME/.gradle/caches/modules-2/files-2.1"
+env:
+  global:
+  - SPRING_OUTPUT_ANSI_ENABLED=ALWAYS
+  - SPRING_JPA_SHOW_SQL=false
+  - secure: kqfN7/NP6Dxo20hpDIuhhNjxZQaTlJS++/6emsq5RoHZ5T7N3GZ0l2iVs7wTtGKHVPYsD4A1iHShmAT/UdNG54qT94zPvBIaTZHz8n1TX8tpY+xY/vVUdHbpeSpG5sizbfoXWk8gzLskhKnadyL3X66oRsC52gLG5NGDo/wwooCiw3GpRNKknh9fTaVzi2h8aIWSsJl4540B8etBqHXeHo2nZ2FkP6Dg2srLUTGvdm6eVt3DbrElQU2KY23b1CeV0tflB/B4KK6FiOjNg+y0TIXVE+AQ2pERi7BiWodd0d4NJDCOpdZq4P/Fkmhwd+B7MMof/NgJa2MRIYGmtQobpGVkfCub+AkL91QAykdcHuoQU/W/IzRXCjMH2Hf/lfdkoXvmbDFjc5IWLFVK2Q3CFCW/h/inOjGEiXp9M3PCMgSLsXcM5EixkgI3orMqs0KHfdwMaX3EuKJx4F1Kybt+jVIMHklyrioaomWZ8UgUm+W/si+WAsHw5c+lxvvdNjqZQrfQiXIieLTsNj2gMeAhHTtl1LqZpkMeJz0KyLheUH/j5CE2K3pQw40wRfzEH3FX9d1OyHaWzsw3J0oeY5oq6hycj2NRE1i/1HlrMUYSlmB1y9HLJlbBaD1f2Dw6OQAoVgoDjwoNZ1bJU23hDRKd6//3d9G3nfYMMn3iE/UstQY=
+  - secure: hBdlpgprXiK96A5pju9lB0n61KZXOxdtF2h5XN+P9ylmOfRfVDLMlADyoCmIOK8+ncq4J6K7efejYRxOU4si86JCWNqd3IFjKf9gBtJq/9V392PT0+ocn00lzONlFB75HAEJOarJr53tiK+jMTtDb+5hPbjjeUfTG41NWNj1UNHtQEcIo8UKccnvm44L2kL+AJiiPaVlkOHT2m8Dm94+mL7ssuVWC8+HtwAXcr8XqflPhGODWmlITsDEhV0uD/9EuKepDNSVGedfS71AsSgVBBGtaeBGg0ZnWiAbdExvmZG7w4cmP43ivkqL6cVX8JbRpMsrBg2dxXAXgFvu+hclcRWQsNt2EPRzhNbnWj4Y4oSRo2nl25N5ooIQj2RwIVMAai9tAD7Su7n2NICMFiyLIvxi6wGPxVsOiEliEhN/+aP5tgxDLbkrApHrgYSxHvcZe6Yus0UaX8j0Ka/HMHB19Vm+8vnjr+AtECG9U38hMz1V/lgkR61msfw5gl+GJds2NjjhE3pYjCP+9GisUrd84DqdlT+fU2/Db1D875OK5ELhuKVYQSSBf94kX7PgBlJPCTO1rInVxSGW1+5NtjkPq5WMQQJL4gmaGuH+0vbO9PYzdNtJGPIaHvefY7sVjFcxf0m2Pla2sdTM1UfjWrlMW62PvP0/6AdRrWV5iNRYaS8=
+  - secure: NI2eMzWgtCJWkhcs/jT9CYiDabSWFD/h5sikocWxnaf0+Mgxe0ZWgOtli8gLNv0yO6Ku8iHkn/L36jUksTX0BeZL3Ot90HzGzL1YhMYk5AFm1zOBemoOCKXGJ4EbTynN+6+upiPZP2VwJlJwqnhlitQI6jCATXn0A9JaQ+vQnGoGYegkQPynL/Yre16gMV4L9UCnHGHd37atUOV535dmj27KenDUCkAAuAYJJxeBLOFFUk0cRlONeLdi97M+k37nEzSHHAGUlxIkpQCU939KXM6Z6rbgSvQq804Y4nyQm/baA3YZ+d3umgCghSfijvKUJ6HC5TzQKsugP8537Sx+H3NpM1YfvA44E+Xhh9nt/qhyOMYSyK76d1/0kOEW9QWIVNX2Nt4ifsAlyS2rnnsonbt32yxbRQln5E394hysXmLYJXogvJkvwzvpe9xOTMtqmYa5k83JG1smExywdliSgDve123VPZ7NIhYYEuvP/1QZ6SddXghUiqgf0v+03c8m4MbkEE2tvBBCum+/s3Mihrmv3zlZYZBh1L5YaMzswTYZXWRtTWQ9wDLDOzXEmf2KYl34YEWR4rju5m1unSetaNN5sFl0IMCJTCaavJ6qG2d0i5SBnsCvxfZZMpHYrXK7SK7oCTX/I93AUoeHnvG+64XN3UaJtE1CUuoxTjJCiqw=
+  # GIT_USER:
+  - secure: ZW5Jdo2p/SqUnIB/nrlZEp/k/eiIuHQkYxafSAgl/83/KxB9ByuewNHmA+69kCdL/mjFL+BdW35PLu+XUWVMsMtJYpOVTlRMKoewb5X7xx7mF/vnWSCX6yoJYSuPyE6vTozZ8YVBBs0HUpvIx+gf2MnZgDkOA5H4hOdF7y9MC7bkCNeFZlb54p0dzT082FgpeTMzYDLk8NTi3+j5DCfGB2nlMLfKvs4UzBB5mhDCDgqTl6fkAYYLVlI+2Mh4FN6PWfT/V4sRCPBI7nG12JSOKm1qt7ut2Vv9mopq5732gmzMgHkW6fofIxntTM42hd+ESYXuLV6uO3HmRFTz+tXPuQ87GyhJFUVCqoWT7QANBaDvAWzqi+O4ApFz3U8gmiFAN6ZLr7gorDczfKbL3b78lIMdAUA69u2f9cfeF3qrlH/W/xMjZlPqO896zSAb524c6tk36SkcRuPKYma9/EToIPQT7L0hgZ3eoH9Sr9L0cqPCcKUHGTDW3qLo8LeIVgcrQB2BMJTNaj2mRgzOB5MCZveqUK47IQjJSCInRLJHsFOfecalf5w0zsBMF7U20GvQ/whLNuez/Hf3MHH92fXzpPbya3wvGNP3kkitKdy78lUjybcHFer6SoXhjJX0Gt9D+UUXuo9F3sXT2aSt7ckV9jh6G9fKyG6ivKY17vQGw6I=
+    # GIT_PWD
+  - secure: DXbUHTMnSd7T7CGopD9zmIFEUp6t4WAUt9vrzeDN9qTUF7I9UQiaRiRt7extWltb7Tks5cywIeDzVv/2/8Mmaqr5Xjvci2XptWbsD4tx8a1XQgbIBARp0BTkL1vxjaQipLlIf576bFngvvcA5ar+xSsNBDDPNaC83UL5FiAoQBYTE5VHnQGq4e0hdIeL0Xr+WokrgMXPxwT+NWlT0/3QmEE2loNv6SmxF6bW/0g6JuwNL8DzD8ZR4vk2EFOfzq9Ti4MFPd5HJJWus+lcZh3IazO/H1NpqmgOswOz8KdjYf+gUdMPZCCcysVQofg3lOVujdOEwvjxQJxzFl9a+BkpkqREjMwyfs29hdOEm1nNnRGcondPZ+fv2AMBl2DatkPr2viJ3XtV9huZGDej5TPH+3VkpwxrGlTN3IRCAuMpPirVfoTzFisKTKlaqDFlmGp0LUXJuTz/DpUpFGsp2sgXf6KJxg4xvqqnbLHCf+LOT0XPGjY8CSMLPItj+D9avjZCeQtEXRm2Pa9Cyxh/AamPS99vKXU6E4P/EOentMqdi8IrVgJLeRNXAVe2Xbv4J+uXK8Zm58EMp+akOzql/hRJjPE9+vEe5/hCZ1Qlr8+bqdwt/FkOb0J7YoiGGRXKijs0KcUgPCmXmHFMs3nMj+GFCo2rGpsnDH5lbfDcqhyLDE0=
+before_install:
+- git fetch --unshallow || true
+- chmod +x gradlew
+- jdk_switcher use oraclejdk8
+- java -version
+script:
+- "./gradlew clean check"
+after_success:
+- bash <(curl -s https://codecov.io/bash)
+
+deploy:
+- provider: script
+  skip_cleanup: true
+  script: "./gradlew bootJar pushDockerImage publish -Pprod -x test -Pversion=${TRAVIS_JOB_NUMBER}-SNAPSHOT
+    -PaddLatestTagToDockerImage=true --stacktrace && .ci-travis/push-version-bump.sh
+    ${TRAVIS_JOB_NUMBER}-SNAPSHOT ${GIT_USER} ${GIT_PWD}"
+  on:
+    all_branches: true
+    condition: "$TRAVIS_BRANCH =~ ^master.*$"
+
+- provider: script
+  skip_cleanup: true
+  script: "./gradlew bootJar pushDockerImage publish -Pprod -x test -Pversion=`echo
+    ${TRAVIS_BRANCH} | cut -c9-`"
+  on:
+    all_branches: true
+    condition: "$TRAVIS_BRANCH =~ ^release.*$"
+
+- provider: script
+  skip_cleanup: true
+  script: "./gradlew bootJar pushDockerImage publish -Pprod -x test -Pversion=${TRAVIS_TAG}"
+  on:
+    tags: true
+
+notifications:
+  webhooks:
+    on_success: change
+    on_failure: always
+    on_start: never

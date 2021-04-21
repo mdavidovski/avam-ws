@@ -1,0 +1,40 @@
+version: '3'
+services:
+    jhipster-registry:
+        image: jhipster/jhipster-registry:v3.2.4
+        volumes:
+        - ./central-server-config:/central-config
+        # When run with the "dev" Spring profile, the JHipster Registry will
+        # read the config from the local filesystem (central-server-config directory)
+        # When run with the "prod" Spring profile, it will read the configuration from a Git repository
+        # See http://www.jhipster.tech/microservices-architecture/#registry_app_configuration
+        environment:
+        - SPRING_PROFILES_ACTIVE=dev,native,swagger
+        - SECURITY_USER_PASSWORD=admin
+        - JHIPSTER_REGISTRY_PASSWORD=admin
+        - SPRING_CLOUD_CONFIG_SERVER_NATIVE_SEARCH_LOCATIONS=file:./central-config/localhost-config/
+        # - GIT_URI=https://github.com/jhipster/jhipster-registry/
+        # - GIT_SEARCH_PATHS=central-config
+        ports:
+        - 8761:8761
+
+    kibana:
+        image: kibana:6.6.2
+        ports: ['5601:5601']
+        networks: ['elasticstack']
+        depends_on: ['elasticsearch']
+        #restart: on-failure
+        environment:
+        - elasticsearch.url=http://elasticsearch:9200
+        - xpack.security.enabled=false
+        - xpack.monitoring.enabled=false
+
+    mail:
+        image: mailhog/mailhog
+        environment:
+            - MH_HOSTNAME=arbeit.swiss
+        ports:
+            - 8025:8025
+            - 1025:1025
+networks:
+  elasticstack:

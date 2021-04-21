@@ -1,0 +1,38 @@
+import org.springframework.core.SpringVersion
+
+buildscript {
+    repositories {
+        maven { url 'https://repo.maven.apache.org/maven2' }
+        maven { url 'https://repo.spring.io/milestone' }
+        maven { url 'https://repo.spring.io/plugins-release' }
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${spring_boot_version}"
+        classpath 'org.ajoberstar:gradle-git:1.4.2'
+    }
+}
+
+apply plugin: 'maven-publish'
+apply plugin: 'org.ajoberstar.grgit'
+
+import org.ajoberstar.grgit.Grgit
+
+publishing {
+    repositories {
+        maven {
+            credentials {
+                username System.env.ARTIFACTORY_USERNAME
+                password System.env.ARTIFACTORY_PASSWORD
+            }
+            url "${artifactoryRepoBase}/libs-${project.version.endsWith('-SNAPSHOT') ? 'snapshots' : 'releases'}-local"
+        }
+    }
+    publications {
+        bootJava(MavenPublication) {
+            artifact bootJar
+//            jar.enabled = true
+//            bootJar.enabled = false
+        }
+    }
+
+}

@@ -1,0 +1,7 @@
+apply plugin: 'docker-compose'
+
+dockerCompose {
+    dockerComposeWorkingDirectory = "${project.rootProject.rootDir}/docker/avam-ws"
+    stopContainers = System.getenv().hasProperty('TRAVIS_JOB_ID') ? true: false
+    startedServices = ['jhipster-registry']
+}

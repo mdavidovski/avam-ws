@@ -1,0 +1,4 @@
+rootProject.name = 'avam-ws'
+
+include 'app-ws-avam-sink'
+include 'infrastructure-messagebroker'
