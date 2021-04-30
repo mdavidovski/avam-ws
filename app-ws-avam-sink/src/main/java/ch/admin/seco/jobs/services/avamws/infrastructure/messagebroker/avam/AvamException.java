@@ -1,5 +1,6 @@
 package ch.admin.seco.jobs.services.avamws.infrastructure.messagebroker.avam;
 
+//FIXME
 public class AvamException extends RuntimeException {
 
     private final String action;

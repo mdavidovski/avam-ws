@@ -3,14 +3,14 @@
 			 xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ws.web.egov.avam.bit.admin.ch"
 			 xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd1="http://valueobjects.common.avam.bit.admin.ch">
 
-<documentation>
+	<documentation>
 		Schnittstelle zu SECO eGov
 		==========================
 
 		Die Schnittstelle wurde möglichst einfach gestaltet. Es gibt auf beiden
 		Seiten der Schnittstelle einen Service, der die verschiedenen Operationen
 		implementiert.
-		Es wurde besonders darauf geachtet, dass die WSDL-Dateien kompatibel zu AJAX2 sind, 
+		Es wurde besonders darauf geachtet, dass die WSDL-Dateien kompatibel zu AJAX2 sind,
 		da eGov seine WS-Clients und -Services mit AJAX implementieren will.
 
 		Sicherheit
@@ -35,11 +35,20 @@
 		<xs:schema>
 			<xs:import namespace="http://valueobjects.common.avam.bit.admin.ch" schemaLocation="EgovToAVAM.xsd"/>
 		</xs:schema>
+		<xs:schema>
+			<xs:import namespace="http://www.ech.ch/xmlns/eCH-0072/1" schemaLocation="eCH-0072-1-0.xsd"/>
+		</xs:schema>
 	</types>
 
 	<!--
 		Nachrichten Deklaration
 	 -->
+	<message name="deliverStesResponse">
+		<part element="xsd1:deliverStesResponse" name="parameters"/>
+	</message>
+	<message name="deliverStesRequest">
+		<part element="xsd1:deliverStes" name="parameters"/>
+	</message>
 	<message name="deliverOsteResponse">
 		<part element="xsd1:deliverOsteResponse" name="parameters"/>
 	</message>
@@ -69,6 +78,10 @@
 		Port Deklaration
 	 -->
 	<portType name="EgovPortType">
+		<operation name="deliverStes">
+			<input message="tns:deliverStesRequest" name="deliverStesRequest"/>
+			<output message="tns:deliverStesResponse" name="deliverStesResponse"/>
+		</operation>
 		<operation name="deliverOste">
 			<input message="tns:deliverOsteRequest" name="deliverOsteRequest"/>
 			<output message="tns:deliverOsteResponse" name="deliverOsteResponse"/>
@@ -92,6 +105,15 @@
 	 -->
 	<binding name="EgovPortBinding" type="tns:EgovPortType">
 		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="deliverStes">
+			<soap:operation soapAction="deliverStes" style="document"/>
+			<input name="deliverStesRequest">
+				<soap:body use="literal"/>
+			</input>
+			<output name="deliverStesResponse">
+				<soap:body use="literal"/>
+			</output>
+		</operation>
 		<operation name="deliverOste">
 			<soap:operation soapAction="deliverOste" style="document"/>
 			<input name="deliverOsteRequest">

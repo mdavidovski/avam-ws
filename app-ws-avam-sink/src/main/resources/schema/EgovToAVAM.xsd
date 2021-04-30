@@ -15,6 +15,217 @@
     </xs:complexType>
 
     <!--
+        StesEgov einfügen in AVAM
+    -->
+    <xs:complexType name="T_StesEgov">
+        <xs:sequence>
+            <xs:element name="stesnummer_egov" nillable="false"><!-- 13-stellige Nr. mit 99 als Präfix -->
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="9900000000000"/>
+                        <xs:maxInclusive value="9999999999999"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="sv_nr" nillable="false">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="7560000000002"/>
+                        <xs:maxInclusive value="7569999999991"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="zas_name" nillable="false">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="255"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="zas_vorname" nillable="false">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="255"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="geburtsdatum" nillable="false">
+                <xs:simpleType>
+                    <xs:restriction base="xs:date">
+                        <xs:pattern value="[^:Z]*"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="geschlecht" nillable="false">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="F"/><!-- weiblich -->
+                        <xs:enumeration value="M"/><!-- männlich -->
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="zivilstand" nillable="false">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="1"/><!-- ledig -->
+                        <xs:enumeration value="2"/><!-- verheiratet/EP - getrennt -->
+                        <xs:enumeration value="3"/><!-- verwitwet/verwitwet EP -->
+                        <xs:enumeration value="4"/><!-- geschieden/EP aufgelöst -->
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="nationalitaet_bfs_nr" nillable="false">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:pattern value="[1-9][0-9][0-9][0-9]"/><!-- BFS-Nr. des Verzeichnis der Staaten und Gebiete -->
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="postanschrift_name" nillable="false">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="255"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="postanschrift_vorname" nillable="false">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="255"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="strasse" nillable="true">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="50"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="haus_nr" nillable="true">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="50"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="postfach" nillable="true">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="1"/>
+                        <xs:maxInclusive value="99999"/>
+                        <xs:pattern value="[123456789]\d*"/><!-- Leading Zero verboten -->
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="plz_onrp" nillable="false">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="1"/>
+                        <xs:maxInclusive value="99999"/>
+                        <xs:pattern value="[123456789]\d*"/><!-- Leading Zero verboten -->
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="land_bfs_nr" nillable="false">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:pattern value="[1-9][0-9][0-9][0-9]"/><!-- BFS-Nr. des Verzeichnis der Staaten und Gebiete -->
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="telefon_privat_nr" nillable="true">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="50"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="telefon_mobile_nr" nillable="true">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="50"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="email" nillable="true">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="3"/>
+                        <xs:maxLength value="255"/>
+                        <xs:pattern value="[^@]+@[^\.]+\..+"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="aufenthaltsstatus" nillable="true">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="10"/><!-- B EU/EFTA (Aufenthaltsbewilligung) -->
+                        <xs:enumeration value="11"/><!-- B (Aufenthaltsbewilligung) -->
+                        <xs:enumeration value="12"/><!-- B (Aufenthaltsbewilligung, anerkannte Flüchtlinge) -->
+                        <xs:enumeration value="20"/><!-- C EU/EFTA (Niederlassungsbewilligung) -->
+                        <xs:enumeration value="21"/><!-- C (Niederlassungsbewilligung) -->
+                        <xs:enumeration value="25"/><!-- Ci EU/EFTA (Aufenthaltsbewill. mit Erwerbstätigk.) -->
+                        <xs:enumeration value="26"/><!-- Ci (Aufenthaltsbewilligung mit Erwerbstätigkeit) -->
+                        <xs:enumeration value="40"/><!-- F (Vorläufig aufgenommene Ausländer) -->
+                        <xs:enumeration value="41"/><!-- F (Vorläufig aufgenommene Flüchtlinge) -->
+                        <xs:enumeration value="50"/><!-- G EU/EFTA (Grenzgängerbewilligung) -->
+                        <xs:enumeration value="51"/><!-- G (Grenzgängerbewilligung) -->
+                        <xs:enumeration value="70"/><!-- L EU/EFTA (Kurzaufenthaltsbewilligung) -->
+                        <xs:enumeration value="71"/><!-- L (Kurzaufenthaltsbewilligung) -->
+                        <xs:enumeration value="80"/><!-- N (Ausweis für Asylsuchende) -->
+                        <xs:enumeration value="90"/><!-- S (Schutzbedürftige) -->
+                        <xs:enumeration value="99"/><!-- K (Noch nicht abgeklärt) -->
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="aufenthalt_bis" nillable="true">
+                <xs:simpleType>
+                    <xs:restriction base="xs:date">
+                        <xs:pattern value="[^:Z]*"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="egov_anmeldedatum" nillable="false">
+                <xs:simpleType>
+                    <xs:restriction base="xs:date">
+                        <xs:pattern value="[^:Z]*"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="stellenantritt_ab" nillable="false">
+                <xs:simpleType>
+                    <xs:restriction base="xs:date">
+                        <xs:pattern value="[^:Z]*"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="benutzerstellen_code" nillable="false">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="5"/>
+                        <xs:maxLength value="5"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="email_kontakt" nillable="false">
+                <xs:simpleType>
+                    <xs:restriction base="xs:boolean">
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!--
         OsteEgov einfügen in AVAM
     -->
     <xs:complexType name="T_OsteEgov">
@@ -853,6 +1064,23 @@
     <!--
         Nachrichten Objekte
     -->
+    <xs:element name="deliverStes">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="credentials" nillable="false" type="tns:WSCredentials"/>
+                <xs:element name="stes" nillable="true" type="tns:T_StesEgov"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deliverStesResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element form="qualified" name="deliverStesReturn" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
     <xs:element name="deliverOste">
         <xs:complexType>
             <xs:sequence>
