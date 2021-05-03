@@ -71,12 +71,12 @@ public class Address {
     @Override
     public String toString() {
         return "Address{" +
-                "street=" + street +
-                ", houseNumber=" + houseNumber +
-                ", poBox=" + poBox +
-                ", postalCode='" + postalCode +
-                ", city='" + city +
-                ", country='" + country +
+                "street='" + street + '\'' +
+                ", houseNumber='" + houseNumber + '\'' +
+                ", poBox='" + poBox + '\'' +
+                ", postalCode='" + postalCode + '\'' +
+                ", city='" + city + '\'' +
+                ", country='" + country + '\'' +
                 '}';
     }
 

@@ -245,30 +245,29 @@ public class AavEventDto implements EventDto {
         return this;
     }
 
-    //TODO: Check formatting
     @Override
     public String toString() {
         return "Aav{" +
-                "id=" + id +
-                ", language=" + language +
-                ", egovNumber=" + egovNumber +
+                "id='" + id + '\'' +
+                ", language='" + language + '\'' +
+                ", egovNumber='" + egovNumber + '\'' +
                 ", jobCenterCode='" + jobCenterCode + '\'' +
                 ", gender='" + gender + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", firstNamePostal=" + firstNamePostal +
-                ", lastNamePostal=" + lastNamePostal +
-                ", phone=" + phone +
-                ", mobile=" + mobile +
-                ", address=" + address + //TODO: Override toString()
-                ", birthday=" + birthday +
-                ", svNumber=" + svNumber +
-                ", civilStatus=" + civilStatus +
-                ", contactType=" + contactType +
-                ", aavFromDate=" + aavFromDate +
-                ", nationality=" + nationality +
-                ", residentialStatus=" + residentialStatus +
-                ", residentialPermissionEndDate=" + residentialPermissionEndDate +
+                ", firstNamePostal='" + firstNamePostal + '\'' +
+                ", lastNamePostal='" + lastNamePostal + '\'' +
+                ", phone='" + phone + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", address='" + address +
+                ", birthday='" + birthday + '\'' +
+                ", svNumber='" + svNumber + '\'' +
+                ", civilStatus='" + civilStatus + '\'' +
+                ", contactType='" + contactType + '\'' +
+                ", aavFromDate='" + aavFromDate + '\'' +
+                ", nationality='" + nationality + '\'' +
+                ", residentialStatus='" + residentialStatus + '\'' +
+                ", residentialPermissionEndDate='" + residentialPermissionEndDate + '\'' +
                 '}';
     }
 

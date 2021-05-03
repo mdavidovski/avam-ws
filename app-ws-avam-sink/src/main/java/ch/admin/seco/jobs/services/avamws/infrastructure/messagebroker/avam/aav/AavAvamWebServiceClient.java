@@ -34,7 +34,7 @@ public class AavAvamWebServiceClient implements AvamWebServiceClient<AavEventDto
     @Override
     public void process(AavEventDto eventDto) {
         LOG.info("Start sending registration of jobAdvertisement id=" + eventDto.getId() + " to AVAM");
-        LOG.debug(eventDto.toString()); // TODO: Override to string of AavEventDto
+        LOG.debug(eventDto.toString());
         TStesEgov tStesEgov = assembler.toStesEgov(eventDto);
         send(eventDto.getId(), tStesEgov);
     }
@@ -44,7 +44,7 @@ public class AavAvamWebServiceClient implements AvamWebServiceClient<AavEventDto
         return eventDto instanceof AavEventDto;
     }
 
-    protected void send(String id, TStesEgov tStesEgov) {
+    private void send(String id, TStesEgov tStesEgov) {
         DeliverStes request = new DeliverStes();
         request.setCredentials(getCredentials());
         request.setStes(tStesEgov);
