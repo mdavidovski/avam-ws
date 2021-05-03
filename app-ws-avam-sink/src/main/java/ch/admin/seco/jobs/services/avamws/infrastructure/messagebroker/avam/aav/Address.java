@@ -68,4 +68,16 @@ public class Address {
         return this;
     }
 
+    @Override
+    public String toString() {
+        return "Address{" +
+                "street=" + street +
+                ", houseNumber=" + houseNumber +
+                ", poBox=" + poBox +
+                ", postalCode='" + postalCode +
+                ", city='" + city +
+                ", country='" + country +
+                '}';
+    }
+
 }

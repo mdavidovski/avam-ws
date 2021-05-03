@@ -44,18 +44,16 @@ public class AavTestFactory {
     static final String JOB_CENTER_CODE = "joc";
 
     // Aav formatted values
-    static final BigInteger AUSTRIAN_UN_ID = BigInteger.valueOf(40);
+    static final String SWISS_COUNTRY_ISO_CODE = "CH";
     static final BigInteger SWISS_UN_ID = BigInteger.valueOf(756);
+    static final BigInteger AUSTRIAN_UN_ID = BigInteger.valueOf(40);
 
     static final long EGOV_NUMBER_FORMATTED = 9912345678909L;
     static final long SV_NUMBER_FORMATTED = 7569217076985L;
     static final String PHONE_FORMATTED = "+41 43 123 12 12";
     static final String MOBILE_FORMATTED = "+41 43 321 21 21";
-    static final XMLGregorianCalendar BIRTHDAY_FORMATTED = getXMLGregorianCalendarFromString("1992-12-01");
     static final Integer PO_BOX_FORMATTED = 123;
     static final int POSTAL_CODE_FORMATTED = 3006;
-    static final XMLGregorianCalendar AAV_FROM_DATE_FORMATTED = getXMLGregorianCalendarFromString("2021-01-01");
-    static final XMLGregorianCalendar RESIDENTIAL_PERMISSION_END_DATE_FORMATTED = getXMLGregorianCalendarFromString("2031-01-01");
 
     static AavEventDto testAavEventDto() {
         return new AavEventDto()

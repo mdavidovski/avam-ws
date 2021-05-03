@@ -1,6 +1,6 @@
 package ch.admin.seco.jobs.services.avamws.infrastructure.messagebroker.avam;
 
-import ch.admin.seco.jobs.services.avamws.infrastructure.messagebroker.avam.aav.AavAvamService;
+import ch.admin.seco.jobs.services.avamws.infrastructure.messagebroker.avam.aav.AavAvamWebServiceClient;
 import ch.admin.seco.jobs.services.avamws.infrastructure.ws.avam.DeliverOste;
 import ch.admin.seco.jobs.services.avamws.infrastructure.ws.avam.DeliverOsteResponse;
 import com.sun.xml.bind.marshaller.CharacterEscapeHandler;
@@ -50,19 +50,10 @@ public class AvamWebServiceClientConfig {
         return messageFactory;
     }
 
-    //TODO: Remove
-    @Bean
-    public AvamWebServiceClient avamServiceOld() {
-        return new AvamWebServiceClient(
-                webServiceTemplate(),
-                avamProperties.getUsername(),
-                avamProperties.getPassword());
-    }
-
     //TODO: Extract for interface and not implementation
     @Bean
-    public AavAvamService avamService() {
-        return new AavAvamService(
+    public AavAvamWebServiceClient avamService() {
+        return new AavAvamWebServiceClient(
                 webServiceTemplate(),
                 avamProperties.getUsername(),
                 avamProperties.getPassword());
