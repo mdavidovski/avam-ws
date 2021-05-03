@@ -20,7 +20,7 @@ public class RetryConfiguration {
 
     private final AvamProperties avamProperties;
 
-    private static Logger LOG = LoggerFactory.getLogger(RetryConfiguration.class);
+    private static final Logger LOG = LoggerFactory.getLogger(RetryConfiguration.class);
 
     public RetryConfiguration(AvamProperties avamProperties) {
         this.avamProperties = avamProperties;

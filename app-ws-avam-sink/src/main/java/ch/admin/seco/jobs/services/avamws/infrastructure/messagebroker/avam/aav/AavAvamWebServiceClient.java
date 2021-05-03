@@ -1,9 +1,9 @@
 package ch.admin.seco.jobs.services.avamws.infrastructure.messagebroker.avam.aav;
 
-import ch.admin.seco.jobs.services.avamws.infrastructure.messagebroker.avam.AvamAction;
 import ch.admin.seco.jobs.services.avamws.infrastructure.messagebroker.avam.AvamException;
 import ch.admin.seco.jobs.services.avamws.infrastructure.messagebroker.avam.AvamWebServiceClient;
 import ch.admin.seco.jobs.services.avamws.infrastructure.messagebroker.avam.EventDto;
+import ch.admin.seco.jobs.services.avamws.infrastructure.messagebroker.avam.enums.AvamAction;
 import ch.admin.seco.jobs.services.avamws.infrastructure.ws.avam.DeliverStes;
 import ch.admin.seco.jobs.services.avamws.infrastructure.ws.avam.DeliverStesResponse;
 import ch.admin.seco.jobs.services.avamws.infrastructure.ws.avam.TStesEgov;
