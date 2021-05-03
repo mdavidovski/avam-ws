@@ -1,0 +1,7 @@
+jobroom:
+  ws:
+    avam:
+      sink:
+        endPointUrl: test
+        username: test
+        password: test
